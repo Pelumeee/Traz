@@ -1,0 +1,126 @@
+<% layout('./layouts/boilerplate') %>
+<section class="hero relative lg:min-h-[100vh]">
+    <video id="heroVideo" autoplay loop playsinline muted class="absolute -z-10 object-cover h-full w-full">
+        <source src="/images/bgvideo.webm" />
+    </video>
+    <%- include('./partials/nav') %>
+    <article class="w-full flex justify-center md:py-32 pt-4 pb-24">
+        <div class="lg:w-[75%] w-[90%] text-center">
+            <h1 class="heroText hide xl:text-6xl sm:text-3xl text-[28px] xl:leading-[80px] sm:leading-[54px] leading-[45px] font-extrabold text-[#fff]">
+                Welcome to <span class="text-gold">TRAZ Intelligence and Security Solutions Limited</span>, Africa’s Trusted Security Intelligence and Risk Management Consortium.
+            </h1>
+            <p class="heroText hide text-[#fff] font-medium lg:text-2xl text-lg lg:leading-10 leading-7 max-w-[80rem] mx-auto my-6">
+                With over <span class="font-extrabold">300 years of combined experience</span>, our team of experts has delivered preemptive security measures that enhance the safety and resilience of
+                our clients in Africa and across the globe.
+            </p>
+            <a href="/about/profile" class="heroText hide inline-block text-[#000] px-10 sm:py-4 py-3 font-semibold leading-6 text-xl bg-gold rounded-[10px]">Learn more</a>
+        </div>
+    </article>
+</section>
+<section class="w-full flex justify-center bg-[#0C0C0C] md:py-32 py-16">
+    <div class="lg:w-[75%] w-[90%] text-center flex flex-col md:gap-24 gap-16">
+        <div id="keyAttributeSection" class="hide">
+            <h1 class="text-gold font-bold md:text-3xl text-[28px] md:leading-10 leading-8">KEY PARTNERS</h1>
+            <p class="text-[#D9D9D9] font-medium leading-8 mx-auto max-w-[75rem] my-4">
+                TRAZ Intelligence and Security Solutions Limited is a globally recognized organization dedicated to providing innovative and effective security solutions. Our expertise spans various
+                security needs, from Cyber Threat Intelligence to Risk Management and Training. 
+            </p>
+            <div class="flex md:flex-row flex-col items-center gap-10 justify-between mx-auto max-w-[55rem] my-10">
+                <img src="/images/partners/one.png" alt="partner-logo" class="partner-logo w-[122px] h-[107px]" />
+                <img src="/images/partners/two.png" alt="partner-logo" class="partner-logo w-[122px] h-[107px]" />
+                <img src="/images/partners/three.png" alt="partner-logo" class="partner-logo w-[122px] h-[107px]" />
+                <img src="/images/partners/four.png" alt="partner-logo" class="partner-logo w-[122px] h-[107px]" />
+            </div>
+        </div>
+        <div id="trazHighlights" class="hide">
+            <h1 class="text-gold font-bold text-3xl leading-10">TRAZ HIGHLIGHTS</h1>
+            <p class="text-[#D9D9D9] font-medium leading-8 mx-auto max-w-[75rem] my-4">
+                TRAZ Intelligence and Security Solutions Limited is a globally recognized organization dedicated to providing innovative and effective security solutions. Our expertise spans various
+                security needs, from Cyber Threat Intelligence to Risk Management and Training. 
+            </p>
+            <div class="w-full grid md:grid-cols-3 grid-cols-1 gap-6 mt-10">
+                <div class="bg-[#161616] md:h-[660px] h-[500px]"></div>
+                <div class="bg-[#161616] md:h-[660px] h-[500px]"></div>
+                <div class="bg-[#161616] md:h-[660px] h-[500px]"></div>
+            </div>
+        </div>
+        <div class="w-full grid md:grid-cols-2 grid-cols-1 gap-16">
+            <div class="flex flex-col items-center">
+                <svg width="44" height="49" viewBox="0 0 44 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M22 10.625C17.5127 10.625 13.875 14.2627 13.875 18.75C13.875 23.2373 17.5127 26.875 22 26.875C26.4873 26.875 30.125 23.2373 30.125 18.75C30.125 14.2627 26.4873 10.625 22 10.625ZM17.625 18.75C17.625 16.3338 19.5838 14.375 22 14.375C24.4163 14.375 26.375 16.3338 26.375 18.75C26.375 21.1662 24.4163 23.125 22 23.125C19.5838 23.125 17.625 21.1662 17.625 18.75Z"
+                        fill="#E8BA53"
+                    />
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M22 0.625C11.9899 0.625 3.87501 8.73984 3.87501 18.75C3.87501 22.4203 4.96596 25.8358 6.84129 28.69L0.376206 39.8878C0.00854366 40.5246 0.0470527 41.3176 0.474693 41.9158C0.902333 42.5139 1.64016 42.8069 2.36167 42.6651L8.89635 41.3805L11.0512 47.682C11.2891 48.3778 11.9118 48.8702 12.6436 48.9415C13.3755 49.0128 14.0815 48.6496 14.4491 48.0128L20.8985 36.8421C21.2629 36.8639 21.6302 36.875 22 36.875C22.3699 36.875 22.7371 36.8639 23.1015 36.8421L29.5509 48.0128C29.9189 48.6503 30.6259 49.0134 31.3584 48.9413C32.091 48.8692 32.7135 48.3751 32.9502 47.6782L35.0941 41.3639L41.6344 42.6643C42.3563 42.8079 43.0954 42.5157 43.5242 41.9174C43.9529 41.3191 43.9919 40.5253 43.6238 39.8878L37.1587 28.69C39.0341 25.8358 40.125 22.4203 40.125 18.75C40.125 8.73984 32.0102 0.625 22 0.625ZM7.62501 18.75C7.62501 10.8109 14.0609 4.375 22 4.375C29.9391 4.375 36.375 10.8109 36.375 18.75C36.375 26.6891 29.9391 33.125 22 33.125C14.0609 33.125 7.62501 26.6891 7.62501 18.75ZM16.9594 36.1649C14.0769 35.3321 11.4899 33.803 9.39226 31.7716L5.68675 38.1897L9.77917 37.3852C10.6993 37.2043 11.6116 37.731 11.915 38.6183L13.2645 42.5647L16.9594 36.1649ZM30.7296 42.5544L27.0406 36.1649C29.9231 35.332 32.5101 33.803 34.6078 31.7715L38.3073 38.1794L34.2129 37.3652C33.2901 37.1817 32.3742 37.7105 32.0718 38.6014L30.7296 42.5544Z"
+                        fill="#E8BA53"
+                    />
+                </svg>
+                <h1 class="text-[#fff] font-bold text-2xl leading-10">OUR MISSION</h1>
+                <p class="text-[#D9D9D9] font-medium leading-7 mx-auto max-w-[30rem]">To Ensure that Africa remains resilient in the face of evolving threats.</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <svg width="46" height="44" viewBox="0 0 46 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10.7077 5.14866C7.84667 5.46843 5.55654 7.72654 5.22551 10.5568C4.33629 18.1597 4.33629 25.8403 5.22551 33.4432C5.55654 36.2734 7.84667 38.5315 10.7077 38.8513C18.1498 39.6831 25.8489 39.6831 33.291 38.8513C36.152 38.5315 38.4422 36.2734 38.7732 33.4432C39.4121 27.9803 39.592 22.4773 39.3127 16.9918C39.3055 16.8502 39.3584 16.712 39.4587 16.6117L42.0556 14.0148C42.3562 13.7142 42.8698 13.9021 42.9017 14.326C43.3918 20.8383 43.2572 27.3858 42.4978 33.8788C41.9607 38.4712 38.2734 42.0678 33.7075 42.5781C25.9886 43.4408 18.0101 43.4408 10.2912 42.5781C5.72527 42.0678 2.03802 38.4712 1.5009 33.8788C0.577825 25.9865 0.577825 18.0135 1.5009 10.1212C2.03802 5.52878 5.72527 1.93218 10.2912 1.42187C18.0101 0.559167 25.9886 0.559167 33.7075 1.42187C35.3156 1.6016 36.8147 2.16417 38.1056 3.01826C38.3597 3.18632 38.3848 3.54341 38.1695 3.75878L36.1623 5.76599C35.9981 5.93018 35.7434 5.9578 35.5388 5.84813C34.8553 5.48189 34.0957 5.2386 33.291 5.14866C25.8489 4.3169 18.1498 4.3169 10.7077 5.14866Z"
+                        fill="#E8BA53"
+                    />
+                    <path
+                        d="M44.5751 7.07581C45.3074 6.34358 45.3074 5.1564 44.5751 4.42416C43.8429 3.69193 42.6557 3.69193 41.9235 4.42416L20.7493 25.5983L14.5751 19.4242C13.8429 18.6919 12.6557 18.6919 11.9235 19.4242C11.1913 20.1564 11.1913 21.3436 11.9235 22.0758L19.4235 29.5758C20.1557 30.308 21.3429 30.308 22.0751 29.5758L44.5751 7.07581Z"
+                        fill="#E8BA53"
+                    />
+                </svg>
+                <h1 class="text-[#fff] font-bold text-2xl leading-10">OUR VISION</h1>
+                <p class="text-[#D9D9D9] font-medium leading-7 mx-auto max-w-[30rem]">Providing Solutions for Tomorrow’s Challenges</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="w-full flex justify-center bg-[#0C0C0C] md:py-32 py-16">
+    <div class="lg:w-[75%] w-[90%] text-center flex flex-col gap-24">
+        <div class="w-full">
+            <h1 class="text-gold font-bold text-3xl leading-10">OUR SERVICES</h1>
+            <p class="text-[#fff] font-medium leading-8 mx-auto max-w-[75rem] my-4">
+                TRAZ Intelligence and Security Solutions Limited is a globally recognized organization dedicated to providing innovative and effective security solutions. Our expertise spans various
+                security needs, from Cyber Threat Intelligence to Risk Management and Training. 
+            </p>
+            <div id="trazServices" class="hide w-full flex flex-wrap items-center justify-center gap-6">
+                <div class="bg-[#1A191980] md:py-6 py-6 flex flex-col justify-center md:px-10 px-6 text-left rounded-[12px] 2xl:w-[32%] sm:w-[45%] sm:min-h-[400px]">
+                    <h1 class="text-gold font-bold md:text-2xl text-base mb-2">Cybersecurity Threat Intelligence Services</h1>
+                    <p class="text-[#C3C3C3] text-sm sm:text-base font-light leading-7">
+                        We provide expert consultancy in cybersecurity threat mapping, helping organizations identify vulnerabilities and stay ahead of cyber threats.
+                    </p>
+                </div>
+                <div class="bg-[#1A191980] md:py-6 py-6 flex flex-col justify-center md:px-10 px-6 text-left rounded-[12px] 2xl:w-[32%] sm:w-[45%] sm:min-h-[400px]">
+                    <h1 class="text-gold font-bold md:text-2xl text-base mb-2">Quarterly Sector-Specific Report</h1>
+                    <p class="text-[#C3C3C3] text-sm sm:text-base font-light leading-7">
+                        Our quarterly reports deliver in-depth insights to enhance safety and security across targeted sectors, supporting informed decision-making.
+                    </p>
+                </div>
+                <div class="bg-[#1A191980] md:py-6 py-6 flex flex-col justify-center md:px-10 px-6 text-left rounded-[12px] 2xl:w-[32%] sm:w-[45%] sm:min-h-[400px]">
+                    <h1 class="text-gold font-bold md:text-2xl text-base mb-2">Risk Assessment and Management</h1>
+                    <p class="text-[#C3C3C3] text-sm sm:text-base font-light leading-7">
+                        We evaluate potential security risks for businesses and develop customized strategies to mitigate those risks effectively.
+                    </p>
+                </div>
+                <div class="bg-[#1A191980] md:py-6 py-6 flex flex-col justify-center md:px-10 px-6 text-left rounded-[12px] 2xl:w-[32%] sm:w-[45%] sm:min-h-[400px]">
+                    <h1 class="text-gold font-bold md:text-2xl text-base mb-2">Access Control Systems</h1>
+                    <p class="text-[#C3C3C3] text-sm sm:text-base font-light leading-7">
+                        Our access control solutions manage and restrict entry to physical and digital spaces, ensuring only authorized individuals gain access.
+                    </p>
+                </div>
+                <div class="bg-[#1A191980] md:py-6 py-6 flex flex-col justify-center md:px-10 px-6 text-left rounded-[12px] 2xl:w-[32%] sm:w-[45%] sm:min-h-[400px]">
+                    <h1 class="text-gold font-bold md:text-2xl text-base mb-2">Consulting and Training</h1>
+                    <p class="text-[#C3C3C3] text-sm sm:text-base font-light leading-7">
+                        We offer security expertise and training to equip personnel with the best practices in intelligence, safety, and risk management.
+                    </p>
+                </div>
+            </div>
+            <a href="" class="inline-block lg:px-32 px-24 md:py-2 py-1 bg-gold rounded-[16px] text-[#000] font-semibold leading-10 md:text-xl text-base mt-10">View more</a>
+        </div>
+    </div>
+</section>

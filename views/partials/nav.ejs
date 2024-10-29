@@ -1,0 +1,94 @@
+<header class="relative w-full flex justify-center <%= currentRoute === '/' ? ' ' : 'bg-[#0C0C0C]' %>">
+    <nav class="relative lg:w-[75%] w-[90%] flex items-center justify-between py-6">
+        <a href="/"> <img src="/images/logo.png" alt="logo" class="lg:w-[116px] w-[43px] lg:h-[111px] h-[41px]" /></a>
+        <ul class="hidden lg:flex items-center justify-between space-x-10">
+            <li class="<%= currentRoute === '/' ? 'active' : '' %> text-[#fefefe] py-2 px-8 font-medium text-lg"><a href="/">Home</a></li>
+            <li class="<%= currentRoute.includes('/about') ? 'active' : '' %> relative text-[#fefefe] py-2 px-8 font-medium text-lg flex items-center gap-2">
+                <a href="/about/profile">About us</a>
+                <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M9.53033 0.96967C9.82322 1.26256 9.82322 1.73744 9.53033 2.03033L5.53033 6.03033C5.23744 6.32322 4.76256 6.32322 4.46967 6.03033L0.46967 2.03033C0.176777 1.73744 0.176777 1.26256 0.46967 0.96967C0.762563 0.676777 1.23744 0.676777 1.53033 0.96967L5 4.43934L8.46967 0.96967C8.76256 0.676777 9.23744 0.676777 9.53033 0.96967Z"
+                        fill="white"
+                    />
+                </svg>
+                <ul class="subLinks bg-[#fff] absolute top-[100%] w-[218px] rounded-[12px] p-6 flex flex-col gap-4">
+                    <li class="text-[#212121] font-medium hover:font-semibold transition-all duration-150"><a href="/about/profile">TRAZ Profile</a></li>
+                    <li class="text-[#212121] font-medium hover:font-semibold transition-all duration-150"><a href="/about/our-team">Meet the Team</a></li>
+                </ul>
+            </li>
+            <li
+                class="<%= currentRoute === '/services' || currentRoute === '/products' || currentRoute === '/training' ? 'active' : '' %> relative text-[#fefefe] py-2 px-8 font-medium text-lg flex items-center gap-2"
+            >
+                <a href="/services">What we do</a>
+                <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M9.53033 0.96967C9.82322 1.26256 9.82322 1.73744 9.53033 2.03033L5.53033 6.03033C5.23744 6.32322 4.76256 6.32322 4.46967 6.03033L0.46967 2.03033C0.176777 1.73744 0.176777 1.26256 0.46967 0.96967C0.762563 0.676777 1.23744 0.676777 1.53033 0.96967L5 4.43934L8.46967 0.96967C8.76256 0.676777 9.23744 0.676777 9.53033 0.96967Z"
+                        fill="white"
+                    />
+                </svg>
+                <ul class="subLinks bg-[#fff] absolute top-[100%] w-[218px] rounded-[12px] p-6 flex flex-col gap-4">
+                    <li class="text-[#212121] font-medium hover:font-semibold transition-all duration-150"><a href="/services">Our Services</a></li>
+                    <li class="text-[#212121] font-medium hover:font-semibold transition-all duration-150"><a href="/products">Our Products</a></li>
+                    <li class="text-[#212121] font-medium hover:font-semibold transition-all duration-150"><a href="/training">Training</a></li>
+                </ul>
+            </li>
+            <li class="<%= currentRoute === '/contact' ? 'active' : '' %> text-[#fefefe] py-2 px-8 font-medium text-lg"><a href="/contact">Contact</a></li>
+        </ul>
+        <img id="openMenu" src="/images/Menu.png" alt="menu-btn" class="lg:hidden w-[28px] h-[28px] cursor-pointer" />
+    </nav>
+    <div id="" class="menu hidden absolute w-[90%] h-[100vh] bg-[#fff] top-[0] right-[0]">
+        <div class="flex items-center justify-end mb-4 p-6">
+            <img id="closeSubmenu" src="/images/cancel.svg" alt="" class="h-[20px] w-[20px] cursor-pointer" />
+        </div>
+        <ul class="flex flex-col">
+            <li class="<%= currentRoute === '/' ? 'active' : '' %> text-[#000000] py-2 px-8 font-medium text-lg"><a href="/">Home</a></li>
+            <li id="" class="sublinks-sm-btn <%= currentRoute.includes('/about') ? 'active' : '' %> relative text-[#000000] py-2 px-8 font-medium text-lg overflow-hidden">
+                <div class="flex items-center gap-3">
+                    <a href="/about/profile">About us</a>
+                    <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M9.53033 0.96967C9.82322 1.26256 9.82322 1.73744 9.53033 2.03033L5.53033 6.03033C5.23744 6.32322 4.76256 6.32322 4.46967 6.03033L0.46967 2.03033C0.176777 1.73744 0.176777 1.26256 0.46967 0.96967C0.762563 0.676777 1.23744 0.676777 1.53033 0.96967L5 4.43934L8.46967 0.96967C8.76256 0.676777 9.23744 0.676777 9.53033 0.96967Z"
+                            fill="black"
+                        />
+                    </svg>
+                </div>
+                <div class="sublinks-sm">
+                    <ul class="p-6 flex flex-col gap-4">
+                        <li class="text-[#212121] font-medium hover:font-semibold transition-all duration-150"><a href="/about/profile">TRAZ Profile</a></li>
+                        <li class="text-[#212121] font-medium hover:font-semibold transition-all duration-150"><a href="/about/our-team">Meet the Team</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li
+                id=""
+                class="sublinks-sm-btn <%= currentRoute === '/services' || currentRoute === '/products' || currentRoute === '/training' ? 'active' : '' %> relative text-[#000] py-2 px-8 font-medium text-lg"
+            >
+                <div class="flex items-center gap-3">
+                    <a href="/services">What we do</a>
+                    <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M9.53033 0.96967C9.82322 1.26256 9.82322 1.73744 9.53033 2.03033L5.53033 6.03033C5.23744 6.32322 4.76256 6.32322 4.46967 6.03033L0.46967 2.03033C0.176777 1.73744 0.176777 1.26256 0.46967 0.96967C0.762563 0.676777 1.23744 0.676777 1.53033 0.96967L5 4.43934L8.46967 0.96967C8.76256 0.676777 9.23744 0.676777 9.53033 0.96967Z"
+                            fill="black"
+                        />
+                    </svg>
+                </div>
+                <div class="sublinks-sm">
+                    <ul class="p-6 flex flex-col gap-4">
+                        <li class="text-[#212121] font-medium hover:font-semibold transition-all duration-150"><a href="/services">Our Services</a></li>
+                        <li class="text-[#212121] font-medium hover:font-semibold transition-all duration-150"><a href="/products">Our Products</a></li>
+                        <li class="text-[#212121] font-medium hover:font-semibold transition-all duration-150"><a href="/training">Training</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="<%= currentRoute === '/contact' ? 'active' : '' %> text-[#000000] py-2 px-8 font-medium text-lg"><a href="/contact">Contact</a></li>
+        </ul>
+    </div>
+</header>

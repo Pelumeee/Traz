@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/images/logo.png" />
+        <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css" />
+        <link rel="stylesheet" href="/styles/animate.min.css" />
+
+        <link rel="stylesheet" href="/styles/style.css" />
+        <link rel="stylesheet" href="/styles/tailwind.css" />
+        <title><%= title %> - TRAZ Intelligence and Security Solutions Limited</title>
+    </head>
+    <body class="bg-blackBg">
+        <% if (currentRoute !== '/') { %> <%- include('../partials/nav') %> <% } %> <%- body %> <%- include('../partials/contactCard') %> <%- include('../partials/footer') %>
+        <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+
+        <script>
+            const sublinksbtn = document.querySelectorAll(".sublinks-sm-btn");
+            sublinksbtn.forEach((button) => {
+                button.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const subLink = button.querySelector(".sublinks-sm");
+                    subLink.classList.toggle("show");
+                });
+
+                const subLinkItems = button.querySelectorAll(".sublinks-sm a");
+                subLinkItems.forEach((link) => {
+                    link.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                    });
+                });
+            });
+
+            const submenu = document.querySelector(".menu");
+            const closeBtn = document.getElementById("closeSubmenu");
+
+            document.getElementById("openMenu").addEventListener("click", function () {
+                submenu.classList.remove("hidden");
+                document.body.classList.add("no-scroll");
+            });
+
+            closeBtn.addEventListener("click", function () {
+                submenu.classList.add("hidden");
+                document.body.classList.remove("no-scroll");
+            });
+
+
+
+
+            // Initialize Lenis
+            const lenis = new Lenis();
+
+            // Listen for the scroll event and log the event data
+            lenis.on("scroll", (e) => {
+                // console.log(e);
+            });
+
+            // Use requestAnimationFrame to continuously update the scroll
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+        </script>
+        <script src="/scripts/main.js"></script>
+    </body>
+</html>
