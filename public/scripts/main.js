@@ -43,7 +43,7 @@ observeElement(trazServices, 0.2, ["animate__animated", "animate__fadeInUp"]);
 observeElement(whoImage, 0.7, ["animate__animated", "animate__fadeInBottomRight"]);
 observeElement(whoText, 0.7, ["animate__animated", "animate__fadeInBottomLeft"]);
 observeElement(trazProfile, 0.8, ["animate__animated", "animate__fadeInUp"]);
-observeElement(footerCard, 0.9, ["animate__animated", "animate__slideInUp"]);
+// observeElement(footerCard, 0.9, ["animate__animated", "animate__slideInUp"]);
 allLeft.forEach((element) => {
     observeElement(element, 0.8, ["animate__animated", "animate__fadeInBottomLeft"]);
 });
