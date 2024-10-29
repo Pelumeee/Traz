@@ -48,7 +48,7 @@
             <li class="<%= currentRoute === '/' ? 'active' : '' %> text-[#000000] py-2 px-8 font-medium text-lg"><a href="/">Home</a></li>
             <li id="" class="sublinks-sm-btn <%= currentRoute.includes('/about') ? 'active' : '' %> relative text-[#000000] py-2 px-8 font-medium text-lg overflow-hidden">
                 <div class="flex items-center gap-3">
-                    <a href="/about/profile">About us</a>
+                    <span class="cursor-pointer">About us</span>
                     <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             fill-rule="evenodd"
@@ -70,7 +70,7 @@
                 class="sublinks-sm-btn <%= currentRoute === '/services' || currentRoute === '/products' || currentRoute === '/training' ? 'active' : '' %> relative text-[#000] py-2 px-8 font-medium text-lg"
             >
                 <div class="flex items-center gap-3">
-                    <a href="/services">What we do</a>
+                    <span class="cursor-pointer">What we do</span>
                     <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             fill-rule="evenodd"
