@@ -1043,7 +1043,7 @@ video {
 }
 
 :root {
-    --animate-duration: 2s;
+    --animate-duration: 1.5s;
     --animate-delay: 0.2s;
 }
 
@@ -1196,6 +1196,13 @@ nav ul li:hover .subLinks {
     animation: fadeInScale 2s ease-in forwards;
 }
 
+.leaders-pic {
+    transition: scale 0.3s ease-in-out;
+}
+
+.leaders-pic:hover {
+    scale: 1.1;
+}
 /* .menu {
     position: absolute;
     width: 90%;
@@ -1216,16 +1223,13 @@ nav ul li:hover .subLinks {
 .no-scroll {
     overflow: hidden;
 } */
-
 .hover\:font-semibold:hover{
   font-weight: 600;
 }
-
 .focus\:outline-none:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-
 @media (min-width: 576px){
   .sm\:min-h-\[400px\]{
     min-height: 400px;
@@ -1266,7 +1270,6 @@ nav ul li:hover .subLinks {
     line-height: 54px;
   }
 }
-
 @media (min-width: 768px){
   .md\:h-\[298px\]{
     height: 298px;
@@ -1341,7 +1344,6 @@ nav ul li:hover .subLinks {
     line-height: 2.5rem;
   }
 }
-
 @media (min-width: 992px){
   .lg\:order-1{
     order: 1;
@@ -1466,7 +1468,6 @@ nav ul li:hover .subLinks {
     line-height: 97px;
   }
 }
-
 @media (min-width: 1200px){
   .xl\:text-6xl{
     font-size: 3.75rem;
@@ -1476,7 +1477,6 @@ nav ul li:hover .subLinks {
     line-height: 80px;
   }
 }
-
 @media (min-width: 1400px){
   .\32xl\:w-\[32\%\]{
     width: 32%;

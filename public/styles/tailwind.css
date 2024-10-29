@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-    --animate-duration: 2s;
+    --animate-duration: 1.5s;
     --animate-delay: 0.2s;
 }
 
@@ -157,6 +157,13 @@ nav ul li:hover .subLinks {
     animation: fadeInScale 2s ease-in forwards;
 }
 
+.leaders-pic {
+    transition: scale 0.3s ease-in-out;
+}
+
+.leaders-pic:hover {
+    scale: 1.1;
+}
 /* .menu {
     position: absolute;
     width: 90%;
