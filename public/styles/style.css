@@ -1044,8 +1044,18 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+.transition{
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 .duration-150{
   transition-duration: 150ms;
+}
+.duration-300{
+  transition-duration: 300ms;
 }
 
 :root {
@@ -1231,6 +1241,14 @@ nav ul li:hover .subLinks {
 } */
 .hover\:bg-gold\/50:hover{
   background-color: rgb(231 185 82 / 0.5);
+}
+.hover\:bg-\[\#BF973E\]:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 151 62 / var(--tw-bg-opacity));
+}
+.hover\:px-16:hover{
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 .hover\:font-semibold:hover{
   font-weight: 600;
