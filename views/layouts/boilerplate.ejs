@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="/styles/tailwind.css" />
         <title><%= title %> - TRAZ Intelligence and Security Solutions Limited</title>
     </head>
-    <body class="bg-blackBg">
+    <body class="bg-blackBg overflow-x-hidden">
         <% if (currentRoute !== '/') { %> <%- include('../partials/nav') %> <% } %> <%- body %> <%- include('../partials/contactCard') %> <%- include('../partials/footer') %>
         <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 

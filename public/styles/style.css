@@ -735,6 +735,9 @@ video {
 .overflow-hidden{
   overflow: hidden;
 }
+.overflow-x-hidden{
+  overflow-x: hidden;
+}
 .rounded-\[10px\]{
   border-radius: 10px;
 }
@@ -1223,8 +1226,31 @@ nav ul li:hover .subLinks {
 .no-scroll {
     overflow: hidden;
 } */
+.hover\:bg-\[\]:hover{
+  background-color: ;
+}
+.hover\:bg-\[\#\]:hover{
+  background-color: #;
+}
+.hover\:bg-\[\#000\]:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+.hover\:bg-gold\/5:hover{
+  background-color: rgb(231 185 82 / 0.05);
+}
+.hover\:bg-gold\/25:hover{
+  background-color: rgb(231 185 82 / 0.25);
+}
+.hover\:bg-gold\/50:hover{
+  background-color: rgb(231 185 82 / 0.5);
+}
 .hover\:font-semibold:hover{
   font-weight: 600;
+}
+.hover\:text-gold:hover{
+  --tw-text-opacity: 1;
+  color: rgb(231 185 82 / var(--tw-text-opacity));
 }
 .focus\:outline-none:focus{
   outline: 2px solid transparent;

@@ -7,6 +7,9 @@ router.get("/", (req, res, next) => {
     res.render("contact", { title: "Contact", currentRoute });
 });
 
+router.post("/", (req, res) =>{
+    console.log(req.body);
 
+});
 
 module.exports = router;
