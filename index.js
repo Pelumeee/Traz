@@ -5,7 +5,7 @@ const ejsMate = require("ejs-mate");
 
 const port = 8080;
 
-// require("dotenv").config();
+require("dotenv").config();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -16,8 +16,7 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// const clientKey = process.env.GOOGLE_CLIENT_KEY;
-// const secretKey = process.env.GOOGLE_SECRET_KEY;
+
 
 // ======== ROUTES =================================
 const indexRouter = require("./routes/index");
@@ -37,6 +36,9 @@ app.use("/training", trainingRouter);
 
 const contactRouter = require("./routes/contact");
 app.use("/contact", contactRouter);
+
+const highlightRouter = require("./routes/highlight");
+app.use("/highlights", highlightRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

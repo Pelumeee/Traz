@@ -67,6 +67,11 @@ body {
     background-size: cover;
     background-position: center center;
 }
+.highlightHero {
+    background-image: url("../images/highlights/four.png");
+    background-size: cover;
+    background-position: center center;
+}
 .footerHero {
     background-image: url("../images/footerBg.png");
     background-size: cover;
@@ -157,30 +162,42 @@ nav ul li:hover .subLinks {
     animation: fadeInScale 2s ease-in forwards;
 }
 
-.leaders-pic {
+.leaders-pic,
+.highlights {
     transition: scale 0.3s ease-in-out;
 }
 
-.leaders-pic:hover {
+.leaders-pic:hover,
+.highlights:hover {
     scale: 1.1;
 }
-/* .menu {
-    position: absolute;
-    width: 90%;
-    height: 100vh;
-    background-color: #fff;
-    top: 0;
-    right: 0;
-    transform: translateX(100%);n
-    transition: transform 0.3s ease;
-    visibility: hidden;
+.reveal {
+    transition: max-height 2s linear;
+}
+.reveal.show {
+    max-height: 10rem;
 }
 
-.menu.show {
-    transform: translateX(0);
-    visibility: visible;
+.transform-left,
+.transform-right {
+    transition: transform 0.9s linear, opacity 0.9s linear;
 }
 
-.no-scroll {
-    overflow: hidden;
-} */
+.transform-left {
+    opacity: 0;
+    transform: translateX(-90%) translateY(2rem);
+}
+
+.transform-right {
+    opacity: 0;
+    transform: translateX(90%) translateY(2rem);
+}
+
+.transform-left.show,
+.transform-right.show {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+.invalid {
+    border: 1px solid red !important;
+}

@@ -9,12 +9,13 @@
 
         <link rel="stylesheet" href="/styles/style.css" />
         <link rel="stylesheet" href="/styles/tailwind.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
         <title><%= title %> - TRAZ Intelligence and Security Solutions Limited</title>
     </head>
     <body class="bg-blackBg overflow-x-hidden">
         <% if (currentRoute !== '/') { %> <%- include('../partials/nav') %> <% } %> <%- body %> <%- include('../partials/contactCard') %> <%- include('../partials/footer') %>
         <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-
         <script>
             const sublinksbtn = document.querySelectorAll(".sublinks-sm-btn");
             sublinksbtn.forEach((button) => {
@@ -34,7 +35,7 @@
 
             const submenu = document.querySelector(".menu");
             const closeBtn = document.getElementById("closeSubmenu");
-            const menuLinks = submenu.querySelectorAll("a"); 
+            const menuLinks = submenu.querySelectorAll("a");
 
             document.getElementById("openMenu").addEventListener("click", function () {
                 submenu.classList.remove("hidden");
@@ -53,10 +54,6 @@
                 });
             });
 
-
-
-
-            
             // Initialize Lenis
             const lenis = new Lenis();
 
