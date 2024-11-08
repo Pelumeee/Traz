@@ -201,3 +201,14 @@ nav ul li:hover .subLinks {
 .invalid {
     border: 1px solid red !important;
 }
+
+.social-links {
+    transition: transform 150ms linear;
+}
+
+.social-links:hover {
+    transform: translateY(-0.4rem);
+}
+a:hover .links-path {
+    fill: #e7b952 !important;
+}
