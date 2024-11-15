@@ -595,6 +595,9 @@ video {
 .h-full{
   height: 100%;
 }
+.h-\[\]{
+  height: ;
+}
 .max-h-\[1000px\]{
   max-height: 1000px;
 }
