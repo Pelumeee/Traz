@@ -595,14 +595,14 @@ video {
 .h-full{
   height: 100%;
 }
+.max-h-\[1000px\]{
+  max-height: 1000px;
+}
 .max-h-\[640px\]{
   max-height: 640px;
 }
 .min-h-\[4rem\]{
   min-height: 4rem;
-}
-.min-h-\[400px\]{
-  min-height: 400px;
 }
 .w-\[120px\]{
   width: 120px;
@@ -645,6 +645,9 @@ video {
 }
 .w-full{
   width: 100%;
+}
+.max-w-\[1000px\]{
+  max-width: 1000px;
 }
 .max-w-\[15rem\]{
   max-width: 15rem;
@@ -768,8 +771,14 @@ video {
 .rounded-\[8px\]{
   border-radius: 8px;
 }
+.rounded-xl{
+  border-radius: 0.75rem;
+}
 .border{
   border-width: 1px;
+}
+.border-none{
+  border-style: none;
 }
 .border-\[\#1D1D1D\]{
   --tw-border-opacity: 1;
@@ -816,6 +825,10 @@ video {
 }
 .bg-inherit{
   background-color: inherit;
+}
+.object-contain{
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .object-cover{
   -o-object-fit: cover;
@@ -1045,6 +1058,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(231 185 82 / var(--tw-text-opacity));
 }
+.outline-none{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
 .transition-all{
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1266,27 +1283,46 @@ nav ul li:hover .subLinks {
 a:hover .links-path {
     fill: #e7b952 !important;
 }
+
+
+::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
 .hover\:rounded-\[6px\]:hover{
   border-radius: 6px;
 }
+
+
 .hover\:rounded-\[8px\]:hover{
   border-radius: 8px;
 }
+
+
 .hover\:bg-\[\#BF973E\]:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(191 151 62 / var(--tw-bg-opacity));
 }
+
+
 .hover\:px-16:hover{
   padding-left: 4rem;
   padding-right: 4rem;
 }
+
+
 .hover\:font-semibold:hover{
   font-weight: 600;
 }
+
+
 .focus\:outline-none:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
+
 @media (min-width: 576px){
   .sm\:min-h-\[400px\]{
     min-height: 400px;
@@ -1327,6 +1363,8 @@ a:hover .links-path {
     line-height: 54px;
   }
 }
+
+
 @media (min-width: 768px){
   .md\:flex{
     display: flex;
@@ -1355,74 +1393,11 @@ a:hover .links-path {
   .md\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .md\:grid-cols-\[1fr_1fr_1fr_20\%\]{
-    grid-template-columns: 1fr 1fr 1fr 20%;
-  }
-  .md\:grid-cols-\[1fr_25\%\]{
-    grid-template-columns: 1fr 25%;
-  }
-  .md\:grid-cols-\[1fr_55\%\]{
-    grid-template-columns: 1fr 55%;
-  }
-  .md\:grid-cols-\[_25\%\]{
-    grid-template-columns: 25%;
-  }
-  .md\:grid-cols-\[50_25\%\]{
-    grid-template-columns: 50 25%;
-  }
-  .md\:grid-cols-\[50\%_25\%\]{
-    grid-template-columns: 50% 25%;
-  }
-  .md\:grid-cols-\[50\%_\]{
-    grid-template-columns: 50%;
-  }
-  .md\:grid-cols-\[50\%_1fr\]{
-    grid-template-columns: 50% 1fr;
-  }
-  .md\:grid-cols-\[50\%_1fr_1fr\]{
-    grid-template-columns: 50% 1fr 1fr;
-  }
-  .md\:grid-cols-\[60\%_1fr_1fr\]{
-    grid-template-columns: 60% 1fr 1fr;
+  .md\:grid-cols-\[1fr_60\%\]{
+    grid-template-columns: 1fr 60%;
   }
   .md\:grid-cols-\[60\%_1fr\]{
     grid-template-columns: 60% 1fr;
-  }
-  .md\:grid-cols-\[\%_1fr_1fr\]{
-    grid-template-columns: % 1fr 1fr;
-  }
-  .md\:grid-cols-\[70\%_1fr_1fr\]{
-    grid-template-columns: 70% 1fr 1fr;
-  }
-  .md\:grid-cols-\[70\%_1fr\]{
-    grid-template-columns: 70% 1fr;
-  }
-  .md\:grid-cols-\[75\%_1fr\]{
-    grid-template-columns: 75% 1fr;
-  }
-  .md\:grid-cols-4{
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .md\:grid-cols-\[\]{
-    grid-template-columns: ;
-  }
-  .md\:grid-cols-\[1fr_1fr_\]{
-    grid-template-columns: 1fr 1fr;
-  }
-  .md\:grid-cols-\[1fr_1fr_30\]{
-    grid-template-columns: 1fr 1fr 30;
-  }
-  .md\:grid-cols-\[1fr_1fr_30\%\]{
-    grid-template-columns: 1fr 1fr 30%;
-  }
-  .md\:grid-cols-\[1fr_1fr_30\%_1fr\]{
-    grid-template-columns: 1fr 1fr 30% 1fr;
-  }
-  .md\:grid-cols-\[1fr_30\%_30\%_1fr\]{
-    grid-template-columns: 1fr 30% 30% 1fr;
-  }
-  .md\:grid-cols-\[1fr_30\%_1fr_1fr\]{
-    grid-template-columns: 1fr 30% 1fr 1fr;
   }
   .md\:flex-row{
     flex-direction: row;
@@ -1476,6 +1451,8 @@ a:hover .links-path {
     line-height: 2.5rem;
   }
 }
+
+
 @media (min-width: 992px){
   .lg\:order-1{
     order: 1;
@@ -1600,6 +1577,8 @@ a:hover .links-path {
     line-height: 97px;
   }
 }
+
+
 @media (min-width: 1200px){
   .xl\:text-6xl{
     font-size: 3.75rem;
@@ -1609,6 +1588,8 @@ a:hover .links-path {
     line-height: 80px;
   }
 }
+
+
 @media (min-width: 1400px){
   .\32xl\:w-\[32\%\]{
     width: 32%;
