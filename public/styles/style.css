@@ -649,6 +649,9 @@ video {
 .min-h-\[4rem\]{
   min-height: 4rem;
 }
+.min-h-\[600px\]{
+  min-height: 600px;
+}
 .w-\[120px\]{
   width: 120px;
 }
@@ -1471,6 +1474,12 @@ a:hover .links-path {
   }
   .md\:h-\[660px\]{
     height: 660px;
+  }
+  .md\:h-\[564px\]{
+    height: 564px;
+  }
+  .md\:min-h-\[564px\]{
+    min-height: 564px;
   }
   .md\:w-\[311px\]{
     width: 311px;
