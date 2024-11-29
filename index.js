@@ -37,8 +37,8 @@ app.use("/training", trainingRouter);
 const contactRouter = require("./routes/contact");
 app.use("/contact", contactRouter);
 
-const highlightRouter = require("./routes/highlight");
-app.use("/highlights", highlightRouter);
+// const highlightRouter = require("./routes/highlight");
+// app.use("/highlights", highlightRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
