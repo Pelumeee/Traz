@@ -9,7 +9,7 @@ router.get("/our-team", (req, res, next) => {
     let currentRoute = req.originalUrl;
     res.render("team", { title: "Our-Team", currentRoute });
 });
-router.get("/highlights", (req, res, next) => {
+router.get("/gallery", (req, res, next) => {
     let currentRoute = req.originalUrl;
     res.render("highlight", { title: "Contact", currentRoute });
 });
