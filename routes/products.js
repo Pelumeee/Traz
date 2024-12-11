@@ -4,8 +4,8 @@ const contentful = require("contentful");
 const Joi = require("joi");
 
 const contentfulClient = contentful.createClient({
-    space: "rrk8iym8cb9q",
-    accessToken: "Li025YEpTgufO5yGZiSEl6ikFTJb7Lw0D7nyqHjFvbw",
+    space: process.env.CONTENTFUL_SPACE,
+    accessToken: process.env.CONTENTFUL_TOKEN,
 });
 
 const optingSchema = Joi.object({
