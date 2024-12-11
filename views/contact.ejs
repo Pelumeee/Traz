@@ -162,6 +162,8 @@
         return isValid;
     }
 
+    let recaptchaWidgetId;
+
     const contactSubmit = (contactDetails) => {
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -179,8 +181,9 @@
             .then((response) => response.json())
             .then((res) => {
                 if (!res.status) {
+                    console.log(res);
                     Toastify({
-                        text: res.message,
+                        text: res.errors?.[0] || res.message,
                         className: "warning",
                         duration: 3000,
                         close: true,
@@ -189,6 +192,7 @@
                         backgroundColor: "#EC3237",
                         stopOnFocus: true,
                     }).showToast();
+                    grecaptcha.reset(recaptchaWidgetId);
                     $("#submitBtn").prop("disabled", false).text("Submit");
 
                     return;
@@ -200,7 +204,7 @@
                     close: true,
                     gravity: "top",
                     position: "right",
-                    backgroundColor: "#EC3237",
+                    backgroundColor: "#E7B952",
                     stopOnFocus: true,
                 }).showToast();
                 setTimeout(() => {
@@ -210,33 +214,41 @@
             .catch((error) => console.error(error));
     };
 
-    let recaptchaWidgetId;
-
-    grecaptcha.ready(function () {
-        recaptchaWidgetId = grecaptcha.render("googleCaptcha", {
-            sitekey: clientKey,
-            size: "invisible",
-            callback: onRecaptchaSuccess,
+    $(document).ready(function () {
+        grecaptcha.ready(function () {
+            recaptchaWidgetId = grecaptcha.render("googleCaptcha", {
+                sitekey: clientKey,
+                size: "invisible",
+                callback: onRecaptchaSuccess,
+            });
         });
-    });
 
-    $("#submitBtn").on("click", function (e) {
-        e.preventDefault();
-        if (!validateInputs("#contactForm")) return;
-        document.getElementById("googleCaptcha").click();
-    });
-
-    $("#googleCaptcha").on("click", function () {
-        grecaptcha.execute(recaptchaWidgetId);
-    });
-
-    function onRecaptchaSuccess(token) {
-        $("#submitBtn").prop("disabled", true).text("Submitting...");
-        let serializedArray = $("#contactForm").serializeArray();
-        formData = {};
-        $.each(serializedArray, function () {
-            formData[this.name] = this.value;
+        $("#submitBtn").on("click", function (e) {
+            e.preventDefault();
+            if (!validateInputs("#contactForm")) {
+                return;
+            }
+            $("#googleCaptcha").trigger("click");
         });
-        contactSubmit(formData);
-    }
+
+        $("#googleCaptcha").on("click", function () {
+            if (recaptchaWidgetId) {
+                grecaptcha.execute(recaptchaWidgetId);
+            } else {
+                console.error("reCAPTCHA widget not initialized");
+            }
+        });
+
+        function onRecaptchaSuccess(token) {
+            $("#submitBtn").prop("disabled", true).text("Submitting...");
+            const serializedArray = $("#contactForm").serializeArray();
+            const formData = {};
+            $.each(serializedArray, function () {
+                formData[this.name] = this.value;
+            });
+
+            formData["g-recaptcha-response"] = token;
+            contactSubmit(formData);
+        }
+    });
 </script>

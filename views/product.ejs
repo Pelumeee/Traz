@@ -55,57 +55,233 @@
                 <option value="">Reports</option>
             </select>
         </div>
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-10">
-            <div class="md:min-h-[564px] min-h-[600px] rounded-[12px] overflow-hidden flex flex-col">
-                <div class="relative bg-[#000] h-[80%]">
-                    <img src="/images/coverPhoto/coverphoto1.png" alt="" class="h-full w-full object-fill" />
-                    <span class="absolute top-[1rem] left-[1rem] text-gold font-semibold py-2 px-6 rounded-[24px] border border-gold">Free</span>
-                </div>
-                <div class="bg-[#121212] p-4 w-full overflow-hidden h-[20%]">
-                    <h1 class="text-[#fff] font-semibold mb-3">Estate security mapping & management</h1>
-                    <button class="text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]">Download</button>
-                </div>
-            </div>
-            <div class="md:min-h-[564px] min-h-[600px] rounded-[12px] overflow-hidden flex flex-col">
-                <div class="relative bg-[#000] h-[80%]">
-                    <img src="/images/coverPhoto/coverphoto2.png" alt="" class="h-full w-full object-fill" />
-                    <span class="absolute top-[1rem] left-[1rem] text-gold font-semibold py-2 px-6 rounded-[24px] border border-gold">Free</span>
-                </div>
-                <div class="bg-[#121212] p-4 w-full overflow-hidden h-[20%]">
-                    <h1 class="text-[#fff] font-semibold mb-3">Estate security mapping & management</h1>
-                    <button class="text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]">Download</button>
-                </div>
-            </div>
-            <div class="md:min-h-[564px] min-h-[600px] rounded-[12px] overflow-hidden flex flex-col">
-                <div class="relative bg-[#000] h-[80%]">
-                    <img src="/images/coverPhoto/coverphoto3.png" alt="" class="h-full w-full object-fill" />
-                    <span class="absolute top-[1rem] left-[1rem] text-gold font-semibold py-2 px-6 rounded-[24px] border border-gold">Free</span>
-                </div>
-                <div class="bg-[#121212] p-4 w-full overflow-hidden h-[20%]">
-                    <h1 class="text-[#fff] font-semibold mb-3">ABC of business security</h1>
-                    <button class="text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]">Download</button>
-                </div>
-            </div>
-            <div class="md:min-h-[564px] min-h-[600px] rounded-[12px] overflow-hidden flex flex-col">
-                <div class="relative bg-[#000] h-[80%]">
-                    <img src="/images/coverPhoto/coverphoto4.png" alt="" class="h-full w-full object-fill" />
-                    <span class="absolute top-[1rem] left-[1rem] text-gold font-semibold py-2 px-6 rounded-[24px] border border-gold">Free</span>
-                </div>
-                <div class="bg-[#121212] p-4 w-full overflow-hidden h-[20%]">
-                    <h1 class="text-[#fff] font-semibold mb-3">Estate security mapping & management</h1>
-                    <button class="text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]">Download</button>
-                </div>
-            </div>
-            <div class="md:min-h-[564px] min-h-[600px] rounded-[12px] overflow-hidden flex flex-col">
-                <div class="relative bg-[#000] h-[80%]">
-                    <img src="/images/coverPhoto/coverphoto5.png" alt="" class="h-full w-full object-fill" />
-                    <span class="absolute top-[1rem] left-[1rem] text-gold font-semibold py-2 px-6 rounded-[24px] border border-gold">Free</span>
-                </div>
-                <div class="bg-[#121212] p-4 w-full overflow-hidden h-[20%]">
-                    <h1 class="text-[#fff] font-semibold mb-3">Estate security mapping & management</h1>
-                    <button class="text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]">Download</button>
-                </div>
-            </div>
-        </div>
+        <div id="booksContainer" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 auto-rows-[1fr] gap-10 mt-10"></div>
     </div>
 </section>
+<dialog id="modal" class="outline-none border-none rounded-xl">
+    <div class="bg-white flex flex-col gap-4 items-center py-6 px-8 text-center rounded-xl border-none lg:w-[50rem] md:w-[30rem]">
+        <div class="relative w-full flex justify-center mb-10">
+            <span id="closeModalBtn" class="close cursor-pointer text-[#aaaaaa] font-bold text-[28px] absolute top-0 right-0">&times;</span>
+        </div>
+        <div id="purchaseContainer" class="w-full flex flex-col gap-6">
+            <a href="" class="block text-gold font-semibold p-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px] outline-none"
+                >Buy on Amazon</a
+            >
+            <button id="showOptingContainer" class="text-gold font-semibold p-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]">
+                Buy from a Representative
+            </button>
+        </div>
+        <div id="optingFormContainer" class="hidden w-full flex flex-col gap-6 text-left">
+            <h1 class="font-medium">Kindly provide your email, we'd have a representative reach out to you immediately. Thank you</h1>
+            <form action="" id="optingForm">
+                <div class="w-full py-2 flex flex-col rounded-[8px] text-left">
+                    <label for="name" class="text-[#838383] text-xs font-medium mb-2">Name:</label>
+                    <input
+                        autocomplete="off"
+                        required
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="bg-inherit border border-gold rounded-[4px] w-full px-4 py-2 focus:outline-none text-[#000] text-sm font-light"
+                    />
+                    <span class="hidden errorTextName text-xs text-red-600 leading-10"></span>
+                </div>
+                <div class="w-full py-2 flex flex-col rounded-[8px] text-left">
+                    <label for="email" class="text-[#838383] text-xs font-medium mb-2">Email Address:</label>
+                    <input type="text" name="websiteUrl" id="" class="hidden" />
+                    <input
+                        autocomplete="off"
+                        required
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="bg-inherit border border-gold rounded-[4px] w-full px-4 py-2 focus:outline-none text-[#000] text-sm font-light"
+                    />
+                    <span class="hidden errorText text-xs text-red-600 leading-10"></span>
+                </div>
+                <button
+                    id="submitBtn"
+                    type="button"
+                    class="w-full mt-4 text-[#000] font-medium bg-gold flex justify-center items-center py-3 rounded-[16px] transition-all duration-300 hover:bg-[#BF973E] hover:rounded-[6px] outline-none"
+                >
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</dialog>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    const regexp_email = new RegExp(/^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$/i);
+    const booksContainer = document.querySelector("#booksContainer");
+    const modal = document.querySelector("#modal");
+    const submitBtn = document.querySelector("#submitBtn");
+    const purchaseContainer = document.querySelector("#purchaseContainer");
+    const optingFormContainer = document.querySelector("#optingFormContainer");
+    const showOptingContainerBtn = document.querySelector("#showOptingContainer");
+    const closeModalBtn = document.querySelector("#closeModalBtn");
+    let bookName;
+
+    showOptingContainerBtn.addEventListener("click", () => {
+        purchaseContainer.classList.add("hidden");
+        optingFormContainer.classList.remove("hidden");
+    });
+    closeModalBtn.addEventListener("click", () => {
+        modal.close();
+        purchaseContainer.classList.remove("hidden");
+        optingFormContainer.classList.add("hidden");
+    });
+
+    const makeDownloadableLinks = async (link) => {
+        const response = await fetch(link);
+        const blob = await response.blob();
+        const newLink = URL.createObjectURL(blob);
+        return newLink;
+    };
+    const makeBookCards = (books) => {
+        books.forEach(async (book) => {
+            const card = document.createElement("div");
+            card.className = "rounded-[12px] overflow-hidden flex flex-col";
+            card.innerHTML = `
+            <div class="relative bg-[#000] h-[75%]">
+                <img src="${book.fields.image.fields.file.url}" alt="${book.fields.title}.png" class="h-full w-full object-fill" />
+                <span class="absolute top-[1rem] left-[1rem] text-gold font-semibold py-2 px-6 rounded-[24px] border border-gold">${book.fields.free ? "free" : "paid"}</span>
+            </div>
+            <div class="bg-[#121212] p-4 w-full overflow-hidden h-[25%] flex-col justify-end">
+                <h1 class="text-[#fff] font-semibold mb-3 text-sm">${book.fields.title}</h1>
+                ${
+                    book.fields.free
+                        ? `
+                    <a href="" class="block text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]" download="${book.fields.title}.pdf">
+                        Download
+                    </a>
+                `
+                        : `
+                    <button class="text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]">
+                        Buy Now
+                    </button>
+                `
+                }
+            </div>
+        `;
+            booksContainer.appendChild(card);
+            if (book.fields.free) {
+                const link = card.querySelector("a");
+                const newLink = await makeDownloadableLinks(book.fields.pdf.fields.file.url);
+                link.href = newLink;
+            } else {
+                const button = card.querySelector("button");
+                button.addEventListener("click", () => {
+                    bookName = book.fields.title;
+                    modal.showModal();
+                });
+            }
+        });
+    };
+
+    const getBooks = async () => {
+        try {
+            const response = await fetch("/products/books");
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const books = await response.json();
+            console.log(books);
+            makeBookCards(books);
+        } catch (error) {
+            console.error("Failed to fetch books:", error.message);
+        }
+    };
+
+    const optingFormSubmit = (formdata) => {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify(formdata);
+
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+        };
+
+        fetch("/products", requestOptions)
+            .then((response) => response.json())
+            .then((res) => {
+                if (!res.status) {
+                    console.log(res);
+                    Toastify({
+                        text: res.errors?.[0] || res.message,
+                        className: "warning",
+                        duration: 3000,
+                        close: true,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "#EC3237",
+                        stopOnFocus: true,
+                    }).showToast();
+                    $("#submitBtn").prop("disabled", true).text("Submitting...");
+                    return;
+                }
+                Toastify({
+                    text: "Submitted successfully",
+                    className: "success",
+                    duration: 4000,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "#E7B952",
+                    stopOnFocus: true,
+                }).showToast();
+                modal.close();
+                $('#optingForm')[0].reset();
+                purchaseContainer.classList.remove("hidden");
+                optingFormContainer.classList.add("hidden");
+                $("#submitBtn").prop("disabled", false).text("Submit");
+
+            })
+            .catch((error) => console.error(error));
+    };
+
+    const showError = (input, errorElement, message) => {
+        errorElement.textContent = message;
+        errorElement.classList.remove("hidden");
+        input.focus();
+        setTimeout(() => {
+            errorElement.classList.add("hidden");
+        }, 1000);
+    };
+
+    submitBtn.addEventListener("click", () => {
+        const emailInput = document.querySelector("#email");
+        const nameInput = document.querySelector("#name");
+        const errorTextName = document.querySelector(".errorTextName");
+        const errorTextEmail = document.querySelector(".errorText");
+
+        if (!nameInput.value.trim()) {
+            showError(nameInput, errorTextName, "Name cannot be empty");
+            return;
+        }
+
+        const email = emailInput.value.trim();
+        const errorMessage = !email ? "Email cannot be empty" : !regexp_email.test(email) ? "Invalid email address" : "";
+        if (errorMessage) {
+            showError(emailInput, errorTextEmail, errorMessage);
+            return;
+        }
+
+        $("#submitBtn").prop("disabled", true).text("Submitting...");
+
+        const serializedArray = $("#optingForm").serializeArray();
+        const formData = serializedArray.reduce((data, field) => {
+            data[field.name] = field.value;
+            return data;
+        }, {});
+        formData.bookName = bookName;
+        optingFormSubmit(formData);
+    });
+
+    getBooks();
+</script>
