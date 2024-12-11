@@ -143,28 +143,29 @@
             const card = document.createElement("div");
             card.className = "rounded-[12px] overflow-hidden flex flex-col";
             card.innerHTML = `
-            <div class="relative bg-[#000] h-[75%]">
-                <img src="${book.fields.image.fields.file.url}" alt="${book.fields.title}.png" class="h-full w-full object-fill" />
-                <span class="absolute top-[1rem] left-[1rem] text-gold font-semibold py-2 px-6 rounded-[24px] border border-gold">${book.fields.free ? "free" : "paid"}</span>
-            </div>
-            <div class="bg-[#121212] p-4 w-full overflow-hidden h-[25%] flex-col justify-end">
-                <h1 class="text-[#fff] font-semibold mb-3 text-sm">${book.fields.title}</h1>
-                ${
-                    book.fields.free
-                        ? `
-                    <a href="" class="block text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]" download="${book.fields.title}.pdf">
-                        Download
-                    </a>
-                `
-                        : `
-                    <button class="text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]">
-                        Buy Now
-                    </button>
-                `
-                }
-            </div>
-        `;
+        <div class="relative bg-[#000] h-[75%]">
+            <img src="${book.fields.image.fields.file.url}" alt="${book.fields.title}.png" class="h-full w-full object-fill" />
+            <span class="status absolute top-[1rem] left-[1rem] text-gold font-semibold py-2 px-6 rounded-[24px] border border-gold">${book.fields.free ? "free" : "paid"}</span>
+        </div>
+        <div class="bg-[#121212] p-4 w-full overflow-hidden h-[25%] flex-col justify-end">
+            <h1 class="text-[#fff] font-semibold mb-3 text-sm">${book.fields.title}</h1>
+            ${
+                book.fields.free
+                    ? `
+                <a href="" class="block text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]" download="${book.fields.title}.pdf">
+                    Download
+                </a>
+            `
+                    : `
+                <button class="text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]">
+                    Buy Now
+                </button>
+            `
+            }
+        </div>
+    `;
             booksContainer.appendChild(card);
+
             if (book.fields.free) {
                 const link = card.querySelector("a");
                 const newLink = await makeDownloadableLinks(book.fields.pdf.fields.file.url);
@@ -177,6 +178,8 @@
                 });
             }
         });
+
+        filterBooks("all");
     };
 
     const getBooks = async () => {
@@ -236,11 +239,10 @@
                     stopOnFocus: true,
                 }).showToast();
                 modal.close();
-                $('#optingForm')[0].reset();
+                $("#optingForm")[0].reset();
                 purchaseContainer.classList.remove("hidden");
                 optingFormContainer.classList.add("hidden");
                 $("#submitBtn").prop("disabled", false).text("Submit");
-
             })
             .catch((error) => console.error(error));
     };
@@ -281,6 +283,32 @@
         }, {});
         formData.bookName = bookName;
         optingFormSubmit(formData);
+    });
+
+    const buttons = document.querySelectorAll(".sort-btns button");
+    const bookDivs = booksContainer.querySelectorAll("div");
+
+    const filterBooks = (filter) => {
+        const bookDivs = document.querySelectorAll("#booksContainer > div");
+        bookDivs.forEach((book) => {
+            const span = book.querySelector(".status");
+            const status = span ? span.textContent.trim().toLowerCase() : "";
+
+            if (filter === "all" || status === filter.toLowerCase()) {
+                book.classList.remove("hidden");
+            } else {
+                book.classList.add("hidden");
+            }
+        });
+    };
+
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const filter = btn.textContent.trim().toLowerCase();
+            buttons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            filterBooks(filter);
+        });
     });
 
     getBooks();
