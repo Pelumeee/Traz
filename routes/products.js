@@ -8,6 +8,8 @@ const contentfulClient = contentful.createClient({
     accessToken: process.env.CONTENTFUL_TOKEN,
 });
 
+
+
 const optingSchema = Joi.object({
     bookName: Joi.string().required(),
     email: Joi.string().email().required(),
