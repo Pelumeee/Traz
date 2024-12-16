@@ -36,30 +36,38 @@
     </div>
 </section> -->
 <section class="bg-blackBg flex justify-center lg:py-16 py-16 overflow-x-hidden">
-    <div class="lg:w-[65%] w-[90%] text-center">
+    <div class="lg:w-[70%] w-[90%] text-center">
         <h1 class="text-gold font-bold lg:text-3xl text-2xl leading-10">OUR UNIQUE PRODUCTS</h1>
         <p class="text-[#D9D9D9] text-sm font-medium leading-8 mx-auto max-w-[54rem] my-2">
             We provide a range of top-tier products ranging from our e-books, reports, articles designed to help clients mitigate risks, enhance security, and ensure resilience in an increasingly
             uncertain world.
         </p>
-        <div class="flex items-center justify-between mt-16">
-            <div class="sort-btns flex items-center gap-2">
-                <button class="active text-gold font-semibold py-2 px-4 rounded-[24px] border border-gold">All</button>
-                <button class="text-gold font-semibold py-2 px-4 rounded-[24px] border border-gold">Free</button>
-                <button class="text-gold font-semibold py-2 px-4 rounded-[24px] border border-gold">Paid</button>
-            </div>
-            <select name="" id="" class="text-gold font-semibold py-2 md:px-4 px-2 rounded-[24px] border border-gold bg-[#000] focus:outline-none">
-                <option value="">All</option>
-                <option value="">E-books</option>
-                <option value="">Articles</option>
-                <option value="">Reports</option>
-            </select>
+        <div id="loaderCont" class="text-center py-10">
+            <h1 class="text-gold text-xl leading-10 font-semibold">Getting Products....</h1>
         </div>
-        <div id="booksContainer" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 auto-rows-[1fr] gap-10 mt-10"></div>
+        <div id="productsMainCont" class="hidden flex flex-col items-center w-full">
+            <div class="w-full flex items-center justify-between mt-16">
+                <div class="sort-btns flex items-center gap-2">
+                    <button class="active text-gold font-semibold py-2 px-4 rounded-[24px] border border-gold">All</button>
+                    <button class="text-gold font-semibold py-2 px-4 rounded-[24px] border border-gold">Free</button>
+                    <button class="text-gold font-semibold py-2 px-4 rounded-[24px] border border-gold">Paid</button>
+                </div>
+                <select name="" id="" class="text-gold font-semibold py-2 md:px-4 px-2 rounded-[24px] border border-gold bg-[#000] focus:outline-none">
+                    <option value="">All</option>
+                    <option value="">E-books</option>
+                    <option value="">Articles</option>
+                    <option value="">Reports</option>
+                </select>
+            </div>
+            <div class="w-full text-center">
+                <p class="text-sm leading-10 font-light text-white">Limited time offer on our discounted prices!!!</p>
+            </div>
+            <div id="booksContainer" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 auto-rows-[1fr] gap-10 mt-6"></div>
+        </div>
     </div>
 </section>
 <dialog id="modal" class="outline-none border-none rounded-xl">
-    <div class="bg-white flex flex-col gap-4 items-center py-6 px-8 text-center rounded-xl border-none lg:w-[50rem] md:w-[30rem]">
+    <div class="bg-white flex flex-col gap-4 items-center py-6 px-8 text-center rounded-xl border-none lg:w-[50rem] md:w-[30rem] outline-none">
         <div class="relative w-full flex justify-center mb-10">
             <span id="closeModalBtn" class="close cursor-pointer text-[#aaaaaa] font-bold text-[28px] absolute top-0 right-0">&times;</span>
         </div>
@@ -120,6 +128,8 @@
     const optingFormContainer = document.querySelector("#optingFormContainer");
     const showOptingContainerBtn = document.querySelector("#showOptingContainer");
     const closeModalBtn = document.querySelector("#closeModalBtn");
+    const productsMainCont = document.querySelector("#productsMainCont");
+    const loaderCont = document.querySelector("#loaderCont");
     let bookName;
 
     showOptingContainerBtn.addEventListener("click", () => {
@@ -143,27 +153,35 @@
             const card = document.createElement("div");
             card.className = "rounded-[12px] overflow-hidden flex flex-col";
             card.innerHTML = `
-        <div class="relative bg-[#000] h-[75%]">
-            <img src="${book.fields.image.fields.file.url}" alt="${book.fields.title}.png" class="h-full w-full object-fill" />
-            <span class="status absolute top-[1rem] left-[1rem] text-gold font-semibold py-2 px-6 rounded-[24px] border border-gold">${book.fields.free ? "free" : "paid"}</span>
-        </div>
-        <div class="bg-[#121212] p-4 w-full overflow-hidden h-[25%] flex-col justify-end">
-            <h1 class="text-[#fff] font-semibold mb-3 text-sm">${book.fields.title}</h1>
-            ${
-                book.fields.free
-                    ? `
-                <a href="" class="block text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]" download="${book.fields.title}.pdf">
-                    Download
-                </a>
-            `
-                    : `
-                <button class="text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]">
-                    Buy Now
-                </button>
-            `
-            }
-        </div>
-    `;
+                                <div class="relative bg-[#1C1C1C] h-[70%]">
+                                    <img src="${book.fields.image.fields.file.url}" alt="${book.fields.title}.png" class="h-full w-full object-fill" />
+                                    <span class="status absolute top-[1rem] left-[1rem] text-gold font-semibold py-1 px-4 rounded-[24px] border border-[#5D594E] bg-[#31312F] text-sm">${
+                                        book.fields.free ? "free" : "paid"
+                                    }</span>
+                                </div>
+                                <div class="bg-[#121212] p-4 w-full overflow-hidden flex-col justify-between">
+                                    <div class="w-full flex items-center justify-between mb-2">
+                                        <h1 class="text-[#fff] font-semibold text-sm">${book.fields.title.length > 40 ? book.fields.title.substring(0, 40) + "..." : book.fields.title}</h1>
+                                        ${
+                                            !book.fields.free && book.fields.discount ? `<span class="line-through text-[#fff] font-light text-sm">$${book.fields.pbd}</span>` : ""
+                                        }                                    
+                                    </div>
+                                    ${
+                                        book.fields.free
+                                            ? `
+                                        <a href="" class="block text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]" download="${book.fields.title}.pdf">
+                                            Download
+                                        </a>
+                                    `
+                                            : `
+                                        <button class="flex items-center justify-center gap-2 text-gold font-semibold py-2.5 w-full rounded-[24px] border border-gold transition-all hover:text-black hover:bg-gold hover:rounded-[8px]">
+                                            Buy Now
+                                            <span class="">$${book.fields.price}</span>
+                                        </button>
+                                    `
+                                    }
+                                </div>
+                            `;
             booksContainer.appendChild(card);
 
             if (book.fields.free) {
@@ -177,6 +195,8 @@
                     modal.showModal();
                 });
             }
+            productsMainCont.classList.remove("hidden");
+            loaderCont.classList.add("hidden");
         });
 
         filterBooks("all");
@@ -190,7 +210,6 @@
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const books = await response.json();
-            console.log(books);
             makeBookCards(books);
         } catch (error) {
             console.error("Failed to fetch books:", error.message);
@@ -277,10 +296,10 @@
         $("#submitBtn").prop("disabled", true).text("Submitting...");
 
         const serializedArray = $("#optingForm").serializeArray();
-        const formData = serializedArray.reduce((data, field) => {
-            data[field.name] = field.value;
-            return data;
-        }, {});
+        const formData = {};
+        $.each(serializedArray, function () {
+            formData[this.name] = this.value;
+        });
         formData.bookName = bookName;
         optingFormSubmit(formData);
     });

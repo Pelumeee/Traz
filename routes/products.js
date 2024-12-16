@@ -8,10 +8,9 @@ const contentfulClient = contentful.createClient({
     accessToken: process.env.CONTENTFUL_TOKEN,
 });
 
-
-
 const optingSchema = Joi.object({
     bookName: Joi.string().required(),
+    name: Joi.string().required(),
     email: Joi.string().email().required(),
     websiteUrl: Joi.string().uri().optional().allow(null, ""),
 });
@@ -51,7 +50,7 @@ router.post("/", async (req, res) => {
             <div style="max-width: 600px; margin: 50px auto; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
                 <h2 style="font-size: 24px; margin-bottom: 20px;">Client Opting Form Submission</h2>
                 <div style="margin-bottom: 20px;">
-                    <p style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">Hi, ${name} would like to purchase ${bookName}. Kindly reach out to them at the provided email: ${email}</p>
+                    <p style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">Hi, ${name} would like to purchase ${bookName}. Kindly reach out to them at the provided email: <a href=""> ${email}</a></p>
                 </div>
             </div>
         `;

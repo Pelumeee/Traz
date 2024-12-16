@@ -142,6 +142,10 @@ nav ul li:hover .subLinks {
     transition: transform 0.3s ease-in-out, transform 0.5s ease-in-out;
 }
 
+#loader h1{
+    animation: fade 1.5s alternate infinite;
+}
+
 @keyframes fadeInScale {
     0% {
         transform: scale(0.7) translateY(-3rem);
@@ -149,6 +153,15 @@ nav ul li:hover .subLinks {
     }
     100% {
         transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
         opacity: 1;
     }
 }
@@ -213,11 +226,10 @@ a:hover .links-path {
     fill: #e7b952 !important;
 }
 
-
 ::backdrop {
     background: rgba(0, 0, 0, 0.8);
 }
-.sort-btns button.active{
+.sort-btns button.active {
     background-color: #e7b952;
     color: #000;
 }
