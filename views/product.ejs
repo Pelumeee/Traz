@@ -116,6 +116,10 @@
                 </button>
             </form>
         </div>
+        <div id="successContainer" class="text-center hidden">
+            <h1 class="font-semibold mb-2">Submitted successfully!</h1>
+            <p class="text-sm font-medium">Thank you!. A representative from the team will reach out to you on the provided email as soon as possible.</p>
+        </div>
     </div>
 </dialog>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -126,6 +130,7 @@
     const submitBtn = document.querySelector("#submitBtn");
     const purchaseContainer = document.querySelector("#purchaseContainer");
     const optingFormContainer = document.querySelector("#optingFormContainer");
+    const successContainer = document.querySelector("#successContainer");
     const showOptingContainerBtn = document.querySelector("#showOptingContainer");
     const closeModalBtn = document.querySelector("#closeModalBtn");
     const productsMainCont = document.querySelector("#productsMainCont");
@@ -140,6 +145,7 @@
         modal.close();
         purchaseContainer.classList.remove("hidden");
         optingFormContainer.classList.add("hidden");
+        successContainer.classList.add("hidden");
     });
 
     const makeDownloadableLinks = async (link) => {
@@ -244,24 +250,13 @@
                         backgroundColor: "#EC3237",
                         stopOnFocus: true,
                     }).showToast();
-                    $("#submitBtn").prop("disabled", true).text("Submitting...");
+                    $("#submitBtn").prop("disabled", false).text("Submit");
                     return;
                 }
-                Toastify({
-                    text: "Submitted successfully",
-                    className: "success",
-                    duration: 4000,
-                    close: true,
-                    gravity: "top",
-                    position: "right",
-                    backgroundColor: "#E7B952",
-                    stopOnFocus: true,
-                }).showToast();
-                modal.close();
-                $("#optingForm")[0].reset();
-                purchaseContainer.classList.remove("hidden");
                 optingFormContainer.classList.add("hidden");
+                successContainer.classList.remove("hidden");
                 $("#submitBtn").prop("disabled", false).text("Submit");
+                $("#optingForm")[0].reset();
             })
             .catch((error) => console.error(error));
     };
