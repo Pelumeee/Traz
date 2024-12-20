@@ -1,5 +1,5 @@
 <% layout('/layouts/boilerplate') %>
-<section class="productHero md:py-72 py-60 bg-blackBg text-center overflow-x-hidden">
+<section class="productHero md:py-72 py-40 bg-blackBg text-center overflow-x-hidden">
     <h1 class="text-gold font-bold lg:text-[80px] text-4xl lg:leading-[97px] leading-[48px]">OUR PRODUCTS</h1>
 </section>
 <!-- <section class="bg-blackBg flex justify-center lg:py-32 py-16 overflow-x-hidden">
@@ -62,7 +62,7 @@
             <div class="w-full text-center">
                 <p class="text-sm leading-10 font-light text-white">Limited time offer on our discounted prices!!!</p>
             </div>
-            <div id="booksContainer" class="w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 auto-rows-[1fr] gap-10 mt-6"></div>
+            <div id="booksContainer" class="w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-10"></div>
         </div>
     </div>
 </section>
@@ -157,16 +157,16 @@
     const makeBookCards = (books) => {
         books.forEach(async (book) => {
             const card = document.createElement("div");
-            card.className = "rounded-[12px] overflow-hidden flex flex-col";
+            card.className = "rounded-[12px] overflow-hidden flex flex-col h-[450px]";
             card.innerHTML = `
-                                <div class="relative bg-[#1C1C1C] h-[70%]">
+                                <div class="relative bg-[#1C1C1C] h-[75%]">
                                     <img src="${book.fields.image.fields.file.url}" alt="${book.fields.title}.png" class="h-full w-full object-fill" />
                                     <span class="status absolute top-[1rem] left-[1rem] text-gold font-semibold py-1 px-4 rounded-[24px] border border-[#5D594E] bg-[#31312F] text-sm">${
                                         book.fields.free ? "free" : "paid"
                                     }</span>
                                 </div>
-                                <div class="bg-[#121212] p-4 w-full overflow-hidden flex-col justify-between">
-                                    <div class="w-full flex items-center justify-between mb-2">
+                                <div class="bg-[#121212] p-4 w-full overflow-hidden flex flex-col justify-between h-[25%]">
+                                    <div class="w-full flex items-center justify-between gap-2 text-left">
                                         <h1 class="text-[#fff] font-semibold text-sm">${book.fields.title.length > 40 ? book.fields.title.substring(0, 40) + "..." : book.fields.title}</h1>
                                         ${
                                             !book.fields.free && book.fields.discount ? `<span class="line-through text-[#fff] font-light text-sm">$${book.fields.pbd}</span>` : ""
@@ -204,7 +204,6 @@
             productsMainCont.classList.remove("hidden");
             loaderCont.classList.add("hidden");
         });
-
         filterBooks("all");
     };
 
