@@ -15,8 +15,6 @@ const contactSchema = Joi.object({
     "g-recaptcha-response": Joi.string().required(),
 });
 
-// sanitizing the inputs 
-
 const sanitizeInput = [
     body("name").trim().escape(),
     body("phone").trim().escape(),
