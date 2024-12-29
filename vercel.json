@@ -10,6 +10,11 @@
         {
             "src": "/(.*)",
             "dest": "index.js"
+        },
+        {
+            "source": "https://traz-intelligence-security.com",
+            "destination": "https://www.traz-intelligence-security.com",
+            "permanent": true
         }
     ]
 }
