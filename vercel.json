@@ -6,11 +6,10 @@
             "use": "@vercel/node"
         }
     ],
-    "redirects": [
+    "routes": [
         {
-            "source": "^https://traz-intelligence-security.com$",
-            "destination": "https://www.traz-intelligence-security.com",
-            "permanent": true
+            "src": "/(.*)",
+            "dest": "index.js"
         }
     ]
 }
