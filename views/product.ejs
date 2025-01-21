@@ -52,17 +52,20 @@
                     <button class="text-gold font-semibold py-2 px-4 rounded-[24px] border border-gold">Free</button>
                     <button class="text-gold font-semibold py-2 px-4 rounded-[24px] border border-gold">Paid</button>
                 </div>
-                <select name="" id="" class="text-gold font-semibold py-2 md:px-4 px-2 rounded-[24px] border border-gold bg-[#000] focus:outline-none">
-                    <option value="">All</option>
-                    <option value="">E-books</option>
-                    <option value="">Articles</option>
-                    <option value="">Reports</option>
+                <select name="productType" id="productType" class="text-gold font-semibold py-2 md:px-4 px-2 rounded-[24px] border border-gold bg-[#000] focus:outline-none">
+                    <option value="all">All</option>
+                    <option value="e-book">E-books</option>
+                    <option value="article">Articles</option>
+                    <option value="report">Reports</option>
                 </select>
             </div>
             <div class="w-full text-center">
                 <p class="text-sm leading-10 font-light text-white">Limited time offer on our discounted prices!!!</p>
             </div>
-            <div id="booksContainer" class="w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-10"></div>
+            <div id="noProductFound" class="hidden w-full text-center py-16">
+                <p class="text-white italic text-sm">No product match the selected filter.</p>
+            </div>
+            <div id="booksContainer" class="w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-10 justify-center place-content-center items-center"></div>
         </div>
     </div>
 </section>
@@ -135,7 +138,23 @@
     const closeModalBtn = document.querySelector("#closeModalBtn");
     const productsMainCont = document.querySelector("#productsMainCont");
     const loaderCont = document.querySelector("#loaderCont");
+    const productTypeFilter = document.querySelector("#productType");
+    const noProductFound = document.querySelector("#noProductFound");
     let bookName;
+    let books;
+
+    productTypeFilter.addEventListener("change", () => {
+        const selectedType = productTypeFilter.value;
+
+        const filteredBooks = selectedType === "all" ? books : books.filter((book) => book.fields.productType === selectedType);
+        booksContainer.innerHTML = "";
+        if (filteredBooks.length === 0) {
+            noProductFound.classList.remove("hidden");
+        } else {
+            noProductFound.classList.add("hidden");
+            makeBookCards(filteredBooks);
+        }
+    });
 
     showOptingContainerBtn.addEventListener("click", () => {
         purchaseContainer.classList.add("hidden");
@@ -154,10 +173,12 @@
         const newLink = URL.createObjectURL(blob);
         return newLink;
     };
+
     const makeBookCards = (books) => {
+        booksContainer.innerHTML = "";
         books.forEach(async (book) => {
             const card = document.createElement("div");
-            card.className = "rounded-[12px] overflow-hidden flex flex-col h-[450px]";
+            card.className = "rounded-[12px] overflow-hidden flex flex-col h-[470px]";
             card.innerHTML = `
                                 <div class="relative bg-[#1C1C1C] h-[75%]">
                                     <img src="${book.fields.image.fields.file.url}" alt="${book.fields.title}.png" class="h-full w-full object-fill" />
@@ -168,9 +189,7 @@
                                 <div class="bg-[#121212] p-4 w-full overflow-hidden flex flex-col justify-between h-[25%]">
                                     <div class="w-full flex items-center justify-between gap-2 text-left">
                                         <h1 class="text-[#fff] font-semibold text-sm">${book.fields.title.length > 40 ? book.fields.title.substring(0, 40) + "..." : book.fields.title}</h1>
-                                        ${
-                                            !book.fields.free && book.fields.discount ? `<span class="line-through text-[#fff] font-light text-sm">$${book.fields.pbd}</span>` : ""
-                                        }                                    
+                                        ${!book.fields.free && book.fields.discount ? `<span class="line-through text-[#fff] font-light text-sm">$${book.fields.pbd}</span>` : ""}
                                     </div>
                                     ${
                                         book.fields.free
@@ -214,7 +233,7 @@
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
-            const books = await response.json();
+            books = await response.json();
             makeBookCards(books);
         } catch (error) {
             console.error("Failed to fetch books:", error.message);
