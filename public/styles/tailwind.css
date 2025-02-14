@@ -96,7 +96,7 @@ ul li.active {
     color: #e7b952;
 }
 
-ul li.active div svg {
+ul li.active svg path {
     fill: #e7b952 !important;
 }
 nav ul li .subLinks {

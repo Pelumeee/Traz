@@ -60,12 +60,12 @@ router.post("/", async (req, res) => {
             Messages: [
                 {
                     From: {
-                        Email: "Info@traz-intelligence-security.com",
+                        Email: "TrazAfrica@outlook.com",
                         Name: "TRAZ Intelligence and Security Solutions Limited",
                     },
                     To: [
                         {
-                            Email: "Info@traz-intelligence-security.com",
+                            Email: "TrazAfrica@outlook.com",
                             Name: "TRAZ Intelligence and Security Solutions Limited",
                         },
                     ],

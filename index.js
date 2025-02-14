@@ -16,8 +16,6 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-
-
 // ======== ROUTES =================================
 const indexRouter = require("./routes/index");
 app.use("/", indexRouter);
@@ -37,8 +35,8 @@ app.use("/training", trainingRouter);
 const contactRouter = require("./routes/contact");
 app.use("/contact", contactRouter);
 
-// const highlightRouter = require("./routes/highlight");
-// app.use("/highlights", highlightRouter);
+const foundationRouter = require("./routes/foundation");
+app.use("/foundation", foundationRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
